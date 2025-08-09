@@ -1,0 +1,52 @@
+# Dependências
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Banco de dados
+database/
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs
+*.log
+
+# Arquivos de upload
+uploads/*
+!uploads/.gitkeep
+
+# Arquivos temporários
+tmp/
+temp/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de build
+dist/
+build/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Arquivos de cache
+.cache/
+.parcel-cache/ 
