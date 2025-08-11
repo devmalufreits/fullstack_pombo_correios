@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pigeon illustration">
+  <defs>
+    <linearGradient id="gradWing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#66D9B4"/>
+      <stop offset="100%" stop-color="#6E998B"/>
+    </linearGradient>
+    <linearGradient id="gradBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F2F2F1"/>
+      <stop offset="100%" stop-color="#E9E7E6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="24" fill="url(#gradBody)"/>
+  <g transform="translate(64,120)">
+    <!-- Body -->
+    <ellipse cx="176" cy="168" rx="120" ry="96" fill="#F3F4F6" stroke="#4A5954" stroke-width="4"/>
+    <!-- Neck -->
+    <path d="M240 96c-8 32-56 40-88 40 12-20 20-44 20-68 0-10-2-20-6-28 36 6 70 26 74 56z" fill="#E5E7EB" stroke="#4A5954" stroke-width="4"/>
+    <!-- Head -->
+    <circle cx="180" cy="36" r="28" fill="#E5E7EB" stroke="#4A5954" stroke-width="4"/>
+    <!-- Eye -->
+    <circle cx="188" cy="32" r="6" fill="#332522"/>
+    <circle cx="186" cy="30" r="2" fill="#FFFFFF"/>
+    <!-- Beak -->
+    <path d="M208 40l28 8-28 8c-6-4-6-12 0-16z" fill="#D97E66" stroke="#846F6A" stroke-width="3"/>
+    <!-- Wing -->
+    <path d="M104 132c32-16 104-12 136 8 20 12 44 44 24 68-24 28-72 20-112 8-40-12-88-28-100-56-8-18 20-20 52-28z" fill="url(#gradWing)" stroke="#6E998B" stroke-width="4" opacity="0.9"/>
+    <!-- Tail -->
+    <path d="M60 196l-44 44 68-8" fill="#E0DEDD" stroke="#4A5954" stroke-width="4"/>
+    <!-- Feet -->
+    <path d="M164 252l-12 24M192 252l-12 24" stroke="#D97E66" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

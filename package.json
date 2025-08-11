@@ -1,0 +1,20 @@
+{
+  "name": "delivery-pombos",
+  "version": "1.0.0",
+  "description": "Sistema de gerenciamento de delivery de cartas utilizando pombos-correio, desenvolvido com Node.js, React.js, SQLite e Tailwind CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devmalufreits/fullstack_pombo_correios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devmalufreits/fullstack_pombo_correios/issues"
+  },
+  "homepage": "https://github.com/devmalufreits/fullstack_pombo_correios#readme"
+}

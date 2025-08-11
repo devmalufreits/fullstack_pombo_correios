@@ -43,40 +43,60 @@ api.interceptors.response.use(
 // Serviços da API
 export const pombosAPI = {
   // Listar todos os pombos
-  getAll: () => api.get('/pombos'),
+  getAll: (params = {}) => api.get('/pombos', { params }),
+  // Pombos disponíveis
+  getAvailable: () => api.get('/pombos/available'),
   
   // Buscar pombo por ID
   getById: (id) => api.get(`/pombos/${id}`),
   
   // Criar novo pombo
-  create: (data) => api.post('/pombos', data),
+  create: (data) => {
+    // Se for FormData, usar multipart (para upload de foto)
+    if (data instanceof FormData) {
+      return api.post('/pombos', data, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+    }
+    return api.post('/pombos', data);
+  },
   
   // Atualizar pombo
-  update: (id, data) => api.put(`/pombos/${id}`, data),
+  update: (id, data) => {
+    if (data instanceof FormData) {
+      return api.put(`/pombos/${id}`, data, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+    }
+    return api.put(`/pombos/${id}`, data);
+  },
   
   // Aposentar pombo
-  aposentar: (id) => api.patch(`/pombos/${id}/aposentar`),
+  retire: (id) => api.patch(`/pombos/${id}/retire`),
+
+  // [REMOVIDO] Alternar status ativo/inativo descontinuado
   
   // Excluir pombo
   delete: (id) => api.delete(`/pombos/${id}`),
-  
-  // Upload de foto
-  uploadFoto: (id, formData) => api.post(`/pombos/${id}/foto`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  }),
 };
 
 export const clientesAPI = {
   // Listar todos os clientes
-  getAll: () => api.get('/clientes'),
+  getAll: (params = {}) => api.get('/clientes', { params }),
+  // Buscar clientes por nome
+  searchByName: (q) => api.get('/clientes/search', { params: { q } }),
   
   // Buscar cliente por ID
   getById: (id) => api.get(`/clientes/${id}`),
+  // Buscar cliente por email
+  getByEmail: (email) => api.get(`/clientes/email/${encodeURIComponent(email)}`),
+  // Cartas do cliente
+  getCartas: (id) => api.get(`/clientes/${id}/cartas`),
   
   // Criar novo cliente
   create: (data) => api.post('/clientes', data),
+  // Validar dados do cliente
+  validate: (data) => api.post('/clientes/validate', data),
   
   // Atualizar cliente
   update: (id, data) => api.put(`/clientes/${id}`, data),
@@ -87,7 +107,12 @@ export const clientesAPI = {
 
 export const cartasAPI = {
   // Listar todas as cartas
-  getAll: (status) => api.get('/cartas', { params: { status } }),
+  getAll: (params = {}) => api.get('/cartas', { params }),
+  getFila: () => api.get('/cartas/fila'),
+  getEnviadas: () => api.get('/cartas/enviadas'),
+  getEntregues: () => api.get('/cartas/entregues'),
+  getAtrasadas: () => api.get('/cartas/atrasadas'),
+  getEstatisticas: () => api.get('/cartas/estatisticas'),
   
   // Buscar carta por ID
   getById: (id) => api.get(`/cartas/${id}`),
@@ -96,10 +121,13 @@ export const cartasAPI = {
   create: (data) => api.post('/cartas', data),
   
   // Atualizar status da carta
-  updateStatus: (id, status) => api.patch(`/cartas/${id}/status`, { status }),
+  updateStatus: (id, status) => api.put(`/cartas/${id}/status`, { status }),
+  markAsSent: (id) => api.patch(`/cartas/${id}/enviar`),
+  markAsDelivered: (id) => api.patch(`/cartas/${id}/entregar`),
+  updateMensagem: (id, mensagem) => api.patch(`/cartas/${id}/mensagem`, { mensagem }),
   
   // Excluir carta
   delete: (id) => api.delete(`/cartas/${id}`),
 };
 
-export default api; 
+export default api;

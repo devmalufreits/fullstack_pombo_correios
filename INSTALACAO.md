@@ -15,8 +15,8 @@ Antes de começar, certifique-se de ter instalado:
 
 ### 1. Clone o repositório
 ```bash
-git clone <url-do-repositorio>
-cd Oper-Teste-Pratico
+git clone https://github.com/devmalufreits/fullstack_pombo_correios.git
+cd fullstack_pombo_correios
 ```
 
 ### 2. Configurar o Backend
@@ -31,8 +31,11 @@ npm install
 # Criar arquivo .env (copie do .env.example se existir)
 # ou configure as variáveis de ambiente manualmente
 
-# Iniciar o servidor em modo desenvolvimento
+# Iniciar o servidor em modo desenvolvimento (recomendado)
 npm run dev
+
+# (Opcional) Iniciar em modo produção
+# npm start
 ```
 
 O backend estará disponível em: `http://localhost:3001`
@@ -55,20 +58,20 @@ O frontend estará disponível em: `http://localhost:3000`
 ## Estrutura de Arquivos Criada
 
 ### Backend
-- ✅ `package.json` - Dependências e scripts
-- ✅ `src/server.js` - Servidor principal
-- ✅ `src/config/config.js` - Configurações
-- ✅ `src/config/database.js` - Configuração do SQLite
-- ✅ `.gitignore` - Arquivos ignorados pelo Git
+- `package.json` - Dependências e scripts
+- `src/server.js` - Servidor principal
+- `src/config/config.js` - Configurações
+- `src/config/database.js` - Configuração do SQLite
+- `.gitignore` - Arquivos ignorados pelo Git
 
 ### Frontend
-- ✅ `package.json` - Dependências e scripts
-- ✅ `tailwind.config.js` - Configuração do Tailwind CSS
-- ✅ `postcss.config.js` - Configuração do PostCSS
-- ✅ `src/index.css` - Estilos globais
-- ✅ `src/services/api.js` - Configuração da API
-- ✅ `public/index.html` - HTML principal
-- ✅ `.gitignore` - Arquivos ignorados pelo Git
+- `package.json` - Dependências e scripts
+- `tailwind.config.js` - Configuração do Tailwind CSS
+- `postcss.config.js` - Configuração do PostCSS
+- `src/index.css` - Estilos globais
+- `src/services/api.js` - Configuração da API
+- `public/index.html` - HTML principal
+- `.gitignore` - Arquivos ignorados pelo Git
 
 ## Scripts Disponíveis
 
@@ -101,6 +104,15 @@ CORS_ORIGIN=http://localhost:3000
 ### Banco de Dados
 O SQLite será criado automaticamente na primeira execução em:
 `backend/database/pombos_correio.db`
+
+## Comportamento Atual do Sistema
+
+- Pombos aposentados:
+  - Não podem ser selecionados para envio de cartas (excluídos de `/api/pombos/available`).
+  - Não podem ser editados nem excluídos (backend retorna 400 ao tentar atualizar/deletar).
+  - Na UI, pombos aposentados ficam somente leitura (edição bloqueada) e exibem o rótulo "Aposentado".
+- A funcionalidade de Ativar/Desativar pombo foi removida (rota `PATCH /api/pombos/:id/toggle-status` descontinuada e botão removido no frontend).
+- Frontend usa proxy para o backend durante desenvolvimento (porta 3000 → 3001).
 
 ## Próximos Passos
 

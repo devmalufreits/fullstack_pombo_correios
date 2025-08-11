@@ -6,9 +6,7 @@ const path = require('path');
 const config = require('./config/config');
 
 // Importar rotas
-const pombosRoutes = require('./routes/pombos');
-const clientesRoutes = require('./routes/clientes');
-const cartasRoutes = require('./routes/cartas');
+const apiRoutes = require('./routes/index');
 
 const app = express();
 
@@ -40,18 +38,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use('/public', express.static(path.join(__dirname, '../public')));
 
 // Rotas da API
-app.use('/api/pombos', pombosRoutes);
-app.use('/api/clientes', clientesRoutes);
-app.use('/api/cartas', cartasRoutes);
-
-// Rota de health check
-app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'OK',
-    message: 'Sistema de Delivery Pombos-Correio funcionando!',
-    timestamp: new Date().toISOString()
-  });
-});
+app.use('/api', apiRoutes);
 
 // Middleware de tratamento de erros
 app.use((err, req, res, next) => {
