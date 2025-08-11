@@ -5,40 +5,49 @@
 
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'IM Fell English', Georgia, serif;
   }
   
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-parchment text-ink;
+    /* leve textura de pergaminho */
+    background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel Decorative', serif;
+    letter-spacing: 0.02em;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:brightness-95 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply bg-burgundy hover:bg-burgundyDark text-gold font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-parchment border border-gold;
   }
   
   .btn-secondary {
-    @apply bg-accent hover:brightness-95 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+    @apply bg-gold hover:bg-goldDark text-ink font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-burgundy focus:ring-offset-2 focus:ring-offset-parchment border border-burgundy;
   }
   
   .btn-outline {
-    @apply border border-neutral2/30 hover:bg-neutral2/5 text-neutral3 font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply border border-gold text-burgundy font-medium py-2 px-4 rounded-md transition-colors duration-200 hover:bg-parchment2/60 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-parchment;
   }
 
   .btn-danger {
-    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+    @apply bg-red-800 hover:bg-red-900 text-gold font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-900 focus:ring-offset-2 focus:ring-offset-parchment border border-gold;
   }
   
   .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+    @apply w-full px-3 py-2 border border-gold/50 bg-parchment2 rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent placeholder:text-iron/70;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+    @apply bg-parchment/90 rounded-md shadow-sm border border-gold/40 p-6;
   }
   
   .card-hover {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200;
+    @apply bg-parchment/90 rounded-md shadow-md border border-gold/40 p-6 hover:shadow-lg transition-shadow duration-200;
   }
 }

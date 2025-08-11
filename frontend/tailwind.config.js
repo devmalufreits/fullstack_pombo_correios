@@ -7,16 +7,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Brand palette
+        // Brand palette (legacy)
         primary: '#6E998B',
         accent: '#D97E66',
         accent2: '#66D9B4',
         neutral1: '#846F6A',
         neutral2: '#4A5954',
         neutral3: '#332522',
+        // Medieval palette
+        parchment: '#f8f1e1',
+        parchment2: '#efe2c2',
+        ink: '#2b2b2b',
+        burgundy: '#6b2e2e',
+        burgundyDark: '#4a1f1f',
+        gold: '#c6a662',
+        goldDark: '#a88a4e',
+        forest: '#2f4730',
+        iron: '#5b616a',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['"Cinzel Decorative"', 'serif'],
+        serif: ['"IM Fell English"', 'Georgia', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
